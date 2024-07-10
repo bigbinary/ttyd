@@ -284,16 +284,7 @@ export class Xterm {
             overlayAddon.showOverlay('Reconnecting...');
             refreshToken().then(connect);
         } else {
-            const { terminal } = this;
-            const keyDispose = terminal.onKey(e => {
-                const event = e.domEvent;
-                if (event.key === 'Enter') {
-                    keyDispose.dispose();
-                    overlayAddon.showOverlay('Reconnecting...');
-                    refreshToken().then(connect);
-                }
-            });
-            overlayAddon.showOverlay('Press ⏎ to Reconnect');
+            overlayAddon.showOverlay('The console session has ended. Please refresh the page to reconnect again.');
         }
     }
 
